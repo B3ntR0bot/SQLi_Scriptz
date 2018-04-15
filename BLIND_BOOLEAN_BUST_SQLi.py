@@ -245,7 +245,7 @@ if __name__ == "__main__":
 				print("[+]--- CHAR %s is not within ASCII RANGE!" % str(i))
 				sys.exit()
 
-		print("[+]---TABLE %s ALL CHARACTERS WITHIN RANGE..." % str)
+		print("[+]--- TABLE %s ALL CHARACTERS WITHIN RANGE..." % str(q+1))
 		for i in range(1,table_name_lengths[q]):
 			#TIME TO GET INTERESTING...
 			lower=0;
