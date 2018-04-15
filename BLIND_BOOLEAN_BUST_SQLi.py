@@ -344,8 +344,8 @@ if __name__ == "__main__":
 					# print("[+]--- DATABASE NAME CHAR ASCII : %s" % str(unichr(j)))
 					cur_name = cur_name + str(unichr(j))
 					break
-			str = "Table #" + str(q) + " = " + cur_name
-			print(str)
+			str = "Table #" + str(q+1) + " = " + cur_name
+			table_name.append(cur_name)
 	print("[+]--- ALL DONE KEEP IT LEET f1337")
 	sys.exit()
 
